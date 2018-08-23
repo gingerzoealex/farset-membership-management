@@ -1,0 +1,37 @@
+<html>
+  <head>
+    <style type="text/css">
+
+  @-webkit-keyframes rotate {
+      from {
+        -webkit-transform: rotate(0deg);
+      }
+      to {
+        -webkit-transform: rotate(360deg);
+      }
+    }
+
+      #loadImage {
+          -webkit-animation-name:            rotate;
+          -webkit-animation-duration:        3s;
+          -webkit-animation-iteration-count: infinite;
+          -webkit-animation-timing-function: linear;
+          margin-left: 25%;
+      }
+
+    </style>
+
+  </head>
+
+  <body>
+    <p>You're being redirected to PayPal</p>
+
+<img src="loading.png" id="loadImage">
+
+    <script>
+
+    setTimeout(function(){window.location.href='finalPage.html'},3000);
+
+    </script>
+  </body>
+</html>

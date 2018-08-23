@@ -1,0 +1,102 @@
+<html>
+
+<head>
+  <style type="text/css"></style>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="stylesheet.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <style>
+
+    #container{
+      /* display: inline-block; */
+    }
+
+
+  </style>
+
+</head>
+<body>
+
+    <div id="container">
+        <img id="mainBanner" src="full-banner.png" height="190" width="420" align="center" onclick="mainPage()">
+        <br>
+        <br>
+        <div id="info">
+          <img src="info.png" height="50px" width="50px" onmouseover="showInfo('infotext')" onmouseout="hideInfo('infotext')">
+          <span id="infotext">Lorem ipsum dolor sit amet, per eu aperiri placerat, et wisi vivendum eam. Has dolore iuvaret disputationi an, pri an soluta euismod partiendo. Graeci deterruisset at vis. Aliquip vituperata ne quo, pro brute labitur voluptaria no. Illud luptatum his ea, reque veniam te pro. Nec id regione euismod. Ut minim petentium duo.
+</span><br><hr><br>
+        </div><!-- End div tag for info  -->
+
+    <div id="regForm">
+        <form action="paypal.html">
+          First name:<br>
+          <input type="text" name="firstname" value="">
+          <br><br>
+          Last name:<br>
+          <input type="text" name="lastname" value="">
+          <br><br>
+          Email:</br>
+          <input type="text" name="lastname" value="">
+          <br><br>
+          Date of day pass<br>
+          <input type="text" name="lastname" value="">
+          <br><br>
+          Preferred Contact Method<br>
+            <input type="radio" value="sms" name="contact">SMS<br>
+            <input type="radio" value="email" name="contact">Email
+          <br>
+          <br>
+          Reason for visiting:</br>
+          <select name="options">
+            <option value="--">--</option>
+            <option value="event">Event</option>
+            <option value="working">Working</option>
+            <option value="meeting">Meeting</option>
+            <option value="other">Other</option>
+          </select>
+          <br><br>
+          Have you agreed to the code of conduct?<br>
+          <input type="radio" value="yes" name="conduct" onclick="showSubmitButton()">Yes<br>
+          <input type="radio" value="no" name="conduct" onclick="hideSubmitButton()">No
+          <br><br>
+       <!-- User name:<br>
+            <input type="text" name="userid">
+            <br>
+            User password:<br>
+            <input type="password" name="psw">
+            <br><br> -->
+
+          <input id="submitDetails" type="submit" value="Submit">
+        </form>
+      </div>
+<br>
+
+
+    </div><!-- End div tag for container  -->
+
+
+    <script type="text/javascript">
+
+        function showInfo(id) {
+        document.getElementById(id).style.visibility = "visible";
+        }
+        function hideInfo(id) {
+          document.getElementById(id).style.visibility = "hidden";
+        }
+
+        function showSubmitButton(){
+          document.getElementById("submitDetails").style.opacity = "1";
+        }
+        function hideSubmitButton(){
+          document.getElementById("submitDetails").style.opacity = "0.4";
+        }
+
+        function mainPage(){
+          window.location = "landingPage.html";
+        }
+
+    </script>
+
+
+</body>
+</html>

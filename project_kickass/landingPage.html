@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+
+<body>
+
+      <div id="container">
+
+          <img id="mainBanner" src="full-banner.png">
+          <br>
+
+          <h2>Day Pass Options</h2><br>
+          <p>Read our code of conduct <a href="https://www.farsetlabs.org.uk/about/rules_and_policies.html">here</a> before getting a day pass</p>
+
+          <div id="options">
+        <div id="firstTime">
+          <button type="button" onMouseOver="displayText('descFirstTime')" onMouseOut="hideText('descFirstTime')" onclick="regPage()">First Time Guest</button>
+          <div id="descFirstTime">
+              <p>Quo cu expetenda posidonium mediocritatem, veri omnes tritani ne his. Erat deserunt eos cu, at facilisi vituperata scribentur duo. Usu ne quis aeterno. Copiosae sententiae voluptatibus at vix, labore essent vidisse eu has. Ut decore facilis suavitate per.</p>
+          </div><!-- End div tag for text that appears on hover  -->
+        </div><!-- End div tag for first time visitors  -->
+
+        <div id="returningGuest">
+          <button type="button" onMouseOver="displayText('descReturning')" onMouseOut="hideText('descReturning')">Returning Guest</button>
+          <div id="descReturning">
+            <p>Eu iusto oblique deseruisse vel. Falli molestie verterem ei pri, nam sint tamquam ne, quidam senserit ei eum. Illud eloquentiam reformidans nec at. Te vel tollit accusata splendide, has nominati dissentias te, ei altera temporibus intellegebat usu.<p>
+            </div><!-- End div tag for text that appears on hover  -->
+        </div><!-- End div tag for returningGiest div  -->
+
+      </div><!-- End div tag for options  -->
+
+      <hr>
+
+    </div><!-- End div tag for container  -->
+
+    <div id="social">
+      <a href="https://www.farsetlabs.org.uk/membership/index.html"><img src="spaced_square.png" id="website"></a>
+      <a href="https://twitter.com/farsetlabs?lang=en"><img src="twitter-logo.png" id="twitter"></a>
+      <a href="https://twitter.com/farsetlabs?lang=en"><img src="slack-logo.png" id="slack"></a>
+    </div>
+
+
+
+
+  <script type="text/javascript">
+
+  function displayText(id) {
+  document.getElementById(id).style.visibility = "visible";
+  }
+  function hideText(id) {
+    document.getElementById(id).style.visibility = "hidden";
+  }
+
+  function regPage(){
+    window.location = "registerDetails.html";
+  }
+    //
+    //   $(document).ready(displayText(id){
+    //
+    //     $("mybutt").onMouseOver(function(){
+    //
+    //         $("descFirstTime").fadeIn();
+    //         $("descFirstTime").fadeIn("slow");
+    //         $("descFirstTime").fadeIn(3000);
+    //
+    //     });
+    // });
+
+
+
+
+  </script>
+
+
+
+
+</body>
+</html>
