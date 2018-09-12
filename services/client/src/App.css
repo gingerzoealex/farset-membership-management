@@ -1,28 +1,126 @@
-.App {
+#container{
+  display: inline-flex;
+}
+
+h2{
+  font-family: 'Press Start 2P', cursive;
+  color: #3f3f99;
+  margin-left: 30rem;
+
+}
+
+body {
+  font-family: 'Roboto Slab', serif;
+  color: black;
+}
+
+a {
+  color: #99ca3c;
+  text-decoration-line: none;
+  font-weight: bold;
+}
+
+#mainBanner {
+  height: 5rem;
+  margin-left: 35rem;
+}
+
+#container {
+  margin: auto;
+  width: 100%;
+  text-align: center;
+  align-items: center;
+  padding: 0px;
+}
+
+#options {
+  display: inline-flex;
+  margin: auto;
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+#descFirstTime, #descReturning {
+  text-align: inherit;
+  padding: 3em;
+  border: 2px dashed white;
+  height: auto;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+button {
+  height: 100px;
+  width: auto;
+  border: 1px solid;
+  border-radius: 20px;
+  background-color: #99ca3c;
+  font-family: 'Press Start 2P', cursive;
+  font-weight: bold;
 }
 
-.App-title {
-  font-size: 1.5em;
+#infoText {
+  visibility: hidden;
+  opacity: 1;
 }
 
-.App-intro {
-  font-size: large;
+#info {
+  float: left;
+  opacity: 0.5;
+  float: right;
+  position: relative;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+#info:hover {
+  opacity: 1;
+  color: #99ca3c;
+}
+
+#submitDetails {
+  opacity: 0.4;
+  font-family: fantasy;
+}
+
+#social {
+  margin-left: 40%;
+  margin-right: auto;
+  display: block;
+}
+
+@media(max-width: 1024px) {
+  #container {
+    width: 100%;
+  }
+  #options {
+    display: block;
+  }
+  #descFirstTime, #descReturning {
+    visibility: visible;
+    padding: 0;
+    height: auto;
+  }
+}
+
+@media(max-width: 720px) {
+  body {
+    font-size: 0.8em;
+  }
+  h2 {
+    font-size: 1rem;
+  }
+  #options {
+    display: block;
+  }
+  #descFirstTime, #descReturning {
+    visibility: visible;
+    padding: 0;
+  }
+  #mainBanner {
+    width: 50%;
+    height: auto;
+  }
+  #social {
+    margin: 0;
+  }
+  #slack, #website, #twitter {
+    height: 20%;
+    width: 20%;
+  }
 }
