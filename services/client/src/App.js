@@ -3,23 +3,6 @@ import './App.css';
 
 class App extends Component {
 
-  // displayText(thing) {
-  //   thing.style.visibility = "visible";
-  // }
-  // componentDidMount = () => function (id) {
-  //   var thing = React.findDOMNode(this.refs.retGuest);
-  //  displayText(thing);
-  // }
-
-
-  // hideText(id) {
-  //   document.getElementById(id).style.visibility = "hidden";
-  // }
-
-  // regPage() {
-  //   window.location = "register.html";
-  // }
-
   renderTitles() {
     return (
       <div>
