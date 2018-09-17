@@ -20,6 +20,12 @@ class MemberManagementPage extends React.Component {
     });
   }
 
+  handleDeleteMember(id) {
+    this.setState({
+      members: this.state.members.filter((member) => id !== member.id)
+    });
+  }
+
   render() {
     return (
       <Fragment>
@@ -35,7 +41,7 @@ class MemberManagementPage extends React.Component {
                 members
               </h2>
             </header>
-            <Members members={this.state.members} />
+            <Members onDelete={this.handleDeleteMember.bind(this)} members={this.state.members} />
           </section>
           <section>
             <h2>
@@ -114,28 +120,36 @@ class MemberForm extends React.Component {
   }
 }
 
-function Members({ members }) {
+function Members({ onDelete, members }) {
   if (members === undefined) return null;
 
   return (
     <ul>
       {
         members.map(
-          ({ name }) => <Member name={name} />
+          ({ id, name }) => <Member key={id} id={id} name={name} onDelete={onDelete} />
         )
       }
     </ul>
   );
 }
 
-function Member({ name }) {
-  return (
-    <li>
-      <button>delete</button>
-      <button>edit</button>
-      <span>{name}</span>
-    </li>
-  );
+class Member extends React.Component {
+  handleDeleteMember() {
+    MembersService.deleteMember(this.props.id).then(
+      () => this.props.onDelete(this.props.id)
+    );
+  }
+
+  render() {
+    return (
+      <li>
+        <button onClick={this.handleDeleteMember.bind(this)}>delete</button>
+        <button>edit</button>
+        <span>{this.props.name}</span>
+      </li>
+    );
+  }
 }
 
 ReactDOM.render(<MemberManagementPage />, document.getElementById('root'));
