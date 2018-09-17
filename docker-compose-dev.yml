@@ -43,17 +43,15 @@ services:
     links:
       - users-service
 
-
-
   client:
     container_name: client
     build:
       context: ./services/client
-      dockerfile: Dockerfile-dev-client
+      dockerfile: Dockerfile-dev
     volumes:
       - './services/client:/usr/src/app'
     ports:
-      - '3007:3000' # expose ports - HOST:CONTAINER (nginx:direct)
+      - '3007:3000'
     environment:
       - NODE_ENV=development
     depends_on:
