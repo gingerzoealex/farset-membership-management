@@ -4,6 +4,8 @@ htmlcov/
 jest_0/
 node_modules
 
+.DS_Store
+.idea/*
 *.pyc
 *.pyo
 .coverage
