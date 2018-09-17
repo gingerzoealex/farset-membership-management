@@ -12,3 +12,19 @@ export function getMembers() {
     (response) => response.json()
   );
 }
+
+export function createMember({ name }) {
+  return fetch(`${SERVICE_URL}/members`, {
+    mode: 'cors',
+    method: 'post',
+    headers: new Headers({
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    }),
+    body: JSON.stringify({
+      name
+    })
+  }).then(
+    (response) => response.json()
+  );
+}
