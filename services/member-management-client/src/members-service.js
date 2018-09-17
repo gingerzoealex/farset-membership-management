@@ -28,3 +28,14 @@ export function createMember({ name }) {
     (response) => response.json()
   );
 }
+
+export function deleteMember(id) {
+  return fetch(`${SERVICE_URL}/members/${id}`, {
+    mode: 'cors',
+    method: 'delete',
+    headers: new Headers({
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    }),
+  });
+}
