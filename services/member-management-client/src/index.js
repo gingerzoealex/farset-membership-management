@@ -208,8 +208,8 @@ class Member extends React.Component {
   }
 
   handleDeleteMember() {
-    MembersService.deleteMember(this.props.id).then(
-      () => this.props.onDelete(this.props.id)
+    MembersService.deleteMember(this.props.member.id).then(
+      () => this.props.onDelete(this.props.member.id)
     );
   }
 
