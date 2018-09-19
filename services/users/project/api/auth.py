@@ -95,8 +95,8 @@ def logout_user():
 
 @auth_blueprint.route("/auth/status", methods=["GET"])
 @authenticate
-def get_user_status(resp):
-    user = User.query.filter_by(id=resp).first()
+def get_user_status(auth_id):
+    user = User.query.filter_by(id=auth_id).first()
     response_object = {
         "status": "success",
         "message": "success",
