@@ -16,13 +16,14 @@ database = SQLAlchemy(application)
 
 class Member(database.Model):
     id = database.Column(database.Integer, primary_key=True)
-    name = database.Column(database.String)
+    name = database.Column(database.String(80))
+    email = database.Column(database.String(80))
 
     def __repr__(self):
-        return '<Member(id=%i name=%s)>' % (self.id, self.name)
+        return '<Member(id=%i name=%s email=%s)>' % (self.id, self.name, self.email)
 
     def serialize(self):
-        return { 'id': self.id, 'name': self.name }
+        return { 'id': self.id, 'name': self.name, 'email': self.email }
 
 database.create_all()
 
@@ -34,9 +35,10 @@ def members():
 
         return jsonify([member.serialize() for member in members]), 200
     elif request.method == 'POST':
-        name = request.json.get('name', 'No name')
+        name = request.json.get('name', None)
+        email = request.json.get('email', None)
 
-        member = Member(name=name)
+        member = Member(name=name, email=email)
 
         database.session.add(member)
         database.session.commit()
@@ -48,10 +50,12 @@ def members():
 def member(member_id):
     if request.method == 'PUT':
         name = request.json.get('name', 'No name')
+        email = request.json.get('email', None)
 
         member = Member.query.get(member_id)
 
         member.name = name
+        member.email = email
 
         database.session.add(member)
         database.session.commit()
