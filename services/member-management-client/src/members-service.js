@@ -13,7 +13,7 @@ export function getMembers() {
   );
 }
 
-export function createMember({ name }) {
+export function createMember({ name, email }) {
   return fetch(`${SERVICE_URL}/members`, {
     mode: 'cors',
     method: 'post',
@@ -22,14 +22,15 @@ export function createMember({ name }) {
       'Accept': 'application/json'
     }),
     body: JSON.stringify({
-      name
+      name,
+      email
     })
   }).then(
     (response) => response.json()
   );
 }
 
-export function updateMember(id, { name }) {
+export function updateMember(id, { name, email }) {
   return fetch(`${SERVICE_URL}/members/${id}`, {
     mode: 'cors',
     method: 'put',
@@ -38,7 +39,8 @@ export function updateMember(id, { name }) {
       'Accept': 'application/json'
     }),
     body: JSON.stringify({
-      name
+      name,
+      email
     })
   }).then(
     (response) => response.json()

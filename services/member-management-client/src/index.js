@@ -20,9 +20,9 @@ class MemberManagementPage extends React.Component {
     });
   }
 
-  handleUpdateMember(id, { name }) {
+  handleUpdateMember(id, { name, email }) {
     this.setState({
-      members: this.state.members.map((member) => member.id !== id ? member : { id, name })
+      members: this.state.members.map((member) => member.id !== id ? member : { id, name, email })
     })
   }
 
@@ -68,21 +68,26 @@ class NewMemberForm extends React.Component {
     this.state = {
       original: {
         name: props.member.name,
+        email: props.member.email
       },
       current: {
         name: props.member.name,
+        email: props.member.email
       }
     };
   }
 
   static defaultProps = {
     member: {
-      name: ''
+      name: '',
+      email: ''
     }
   };
 
   handleSubmit(event) {
     const { current, original } = this.state;
+
+    console.log(current);
 
     MembersService.createMember(current).then(
       (member) => {
@@ -96,8 +101,16 @@ class NewMemberForm extends React.Component {
 
   handleNameChange(event) {
     const name = event.target.value;
+    const email = this.state.current.email;
 
-    this.setState({ current: { name } });
+    this.setState({ current: { name, email } });
+  }
+
+  handleEmailChange(event) {
+    const email = event.target.value;
+    const name = this.state.current.name;
+
+    this.setState({ current: { name, email } });
   }
 
   handleReset(event) {
@@ -114,6 +127,12 @@ class NewMemberForm extends React.Component {
             name
           </span>
           <input type='text' value={this.state.current.name} onChange={this.handleNameChange.bind(this)} />
+        </label>
+        <label>
+          <span>
+            email
+          </span>
+          <input type='text' value={this.state.current.email} onChange={this.handleEmailChange.bind(this)} />
         </label>
         <button type='submit'>
           save
@@ -133,20 +152,22 @@ class EditMemberForm extends React.Component {
     this.state = {
       original: {
         name: props.member.name,
+        email: props.member.email
       },
       current: {
         name: props.member.name,
+        email: props.member.email
       }
     };
   }
 
   handleSubmit(event) {
-    const { current, original } = this.state;
+    const { current } = this.state;
 
     MembersService.updateMember(this.props.member.id, current).then(
       (member) => {
         this.props.onSave(this.props.member.id, member);
-        this.setState({ current: original });
+        this.setState({ original: current });
       }
     );
 
@@ -155,8 +176,16 @@ class EditMemberForm extends React.Component {
 
   handleNameChange(event) {
     const name = event.target.value;
+    const email = this.state.current.email;
 
-    this.setState({ current: { name } });
+    this.setState({ current: { name, email } });
+  }
+
+  handleEmailChange(event) {
+    const email = event.target.value;
+    const name = this.state.current.name;
+
+    this.setState({ current: { name, email } });
   }
 
   handleReset(event) {
@@ -175,6 +204,12 @@ class EditMemberForm extends React.Component {
             name
           </span>
           <input type='text' value={this.state.current.name} onChange={this.handleNameChange.bind(this)} />
+        </label>
+        <label>
+          <span>
+            email
+          </span>
+          <input type='text' value={this.state.current.email} onChange={this.handleEmailChange.bind(this)} />
         </label>
         <button type='submit'>
           save
@@ -237,7 +272,7 @@ class Member extends React.Component {
       <li>
         <button onClick={this.handleDeleteMember.bind(this)}>delete</button>
         <button onClick={this.handleEditMember.bind(this)}>edit</button>
-        <span>{this.props.member.name}</span>
+        <span>{`${this.props.member.name || 'no name'}, ${this.props.member.email || 'no email'}`}</span>
       </li>
     );
   }
