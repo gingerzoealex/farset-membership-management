@@ -1,5 +1,6 @@
 import React from "react";
 
+
 const Registration = () => {
     return (
         <div class="container">
@@ -8,6 +9,7 @@ const Registration = () => {
                 Surname: < br />
                 Preferred Contact Details: <br />
             </form>
+
 
         </div>
     );
