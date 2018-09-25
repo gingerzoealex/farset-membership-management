@@ -9,7 +9,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 //create a function to render componants.
 //inmport componensta if you need them
-const PageILike = () => {
+const LandingPage = () => {
   return (
     <div>
       <Title />
@@ -29,7 +29,7 @@ class App extends Component {
         <Router>
           <Switch>
             <Route exact path="/Registration" component={Registration} />
-            <Route exact path="/" component={PageILike} />
+            <Route exact path="/" component={LandingPage} />
           {/* use the function as a component. It will render when the path is visited. */}
           </Switch>
         </Router>
