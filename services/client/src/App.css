@@ -46,15 +46,17 @@ a {
   height: auto;
 }
 
-#clicky {
+.clicky {
   height: 100px;
   width: auto;
   border: 1px solid;
   border-radius: 20px;
   background-color: #99ca3c;
+  color: black;
+  padding: 5px;
   font-family: 'Press Start 2P', cursive;
   font-weight: bold;
-}
+} 
 
 #infoText {
   visibility: hidden;
