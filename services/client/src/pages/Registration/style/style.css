@@ -1,0 +1,26 @@
+button{
+    color: black;
+    margin: 5px;
+    padding: 3px;
+    background-color: #3f3f99;
+    font-family: 'Press Start 2P', cursive;
+    font-size: small;
+}
+.container{
+    margin-left: 30%;
+    align-content: center;
+    font-family: 'Roboto Slab', serif;
+    color: black;
+    margin-top: 2%;
+    margin-bottom: 5%;
+}
+.goRight{
+    margin-left: 20px;
+    margin-right: 500px;
+}
+input{
+    background-color: white;
+    color: black;
+    font-family: 'Roboto Slab', serif;
+
+}

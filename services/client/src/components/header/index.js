@@ -1,12 +1,12 @@
 import React from "react";
-import styles from "./styles";
 
-const Header = () => (
-  <div className="header">
-    <div className="header__title">
-        <span className="homepage-title">Day Pass Portal</span>
+const Header = () => {
+  return (
+    <div>
+      <a href="/"><img id="mainBanner" src="https://raw.githubusercontent.com/gingerzoealex/farset-membership-management/master/mockup/img/full-banner.png" alt="Green and blue logo. Farset Labs; The Belfast Hackerspace " /></a>
+      <br />
     </div>
-  </div>
-);
+  )
+};
 
 export default Header;
